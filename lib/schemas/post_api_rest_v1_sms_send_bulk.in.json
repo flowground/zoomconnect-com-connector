@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "WebServiceSendSmsRequests",
+            "properties": {
+                "defaultDateToSend": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "messagesPerMinute": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "sendSmsRequests": {
+                    "items": {
+                        "description": "WebServiceSendSmsRequest",
+                        "properties": {
+                            "campaign": {
+                                "type": "string"
+                            },
+                            "dataField": {
+                                "type": "string"
+                            },
+                            "dateToSend": {
+                                "format": "date-time",
+                                "type": "string"
+                            },
+                            "message": {
+                                "type": "string"
+                            },
+                            "recipientNumber": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

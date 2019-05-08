@@ -1,0 +1,1174 @@
+{
+    "title": "www.zoomconnect.com",
+    "description": "The world's greatest SMS API",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/zoomconnect.com/1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.zoomconnect.com/app",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "email": {
+                "label": "email (email)",
+                "viewClass": "TextFieldView"
+            },
+            "token": {
+                "label": "token (token)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getBalance": {
+            "main": "./lib/actions/getBalance.js",
+            "title": "balance",
+            "description": "Returns your account's credit balance",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getBalance.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getStatistics": {
+            "main": "./lib/actions/getStatistics.js",
+            "title": "statistics",
+            "description": "Returns data from the statistics report. Note that by default the statistics shown are based on the number of messages, use the calculateCreditValue should you wish to calculate the statistics based on credit value.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getStatistics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "transfer": {
+            "main": "./lib/actions/transfer.js",
+            "title": "transfer",
+            "description": "Transfers credits between two users in the same team. The <i>account email address</i> fields as well as the <i>number of credits to transfer</i> are required. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/transfer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "search": {
+            "main": "./lib/actions/search.js",
+            "title": "search",
+            "description": "Find a user for a particular email address",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/search.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_api_rest_v1_account_user": {
+            "main": "./lib/actions/put_api_rest_v1_account_user.js",
+            "title": "create",
+            "description": "Creates a new sub-account in your team. The following fields are required <i>firstname, lastname, email address, contact number</i> and <i>password.</i>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_api_rest_v1_account_user.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUser": {
+            "main": "./lib/actions/getUser.js",
+            "title": "getUser",
+            "description": "Gets a user from a given user id",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_account_user__userId_": {
+            "main": "./lib/actions/post_api_rest_v1_account_user__userId_.js",
+            "title": "update",
+            "description": "Updates a sub-account in your team. The following fields can be updated <i>firstname, lastname, contact number</i> and <i>password.</i>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_account_user__userId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_contacts_all": {
+            "main": "./lib/actions/get_api_rest_v1_contacts_all.js",
+            "title": "all",
+            "description": "Returns all contacts",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_contacts_all.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_contacts_create": {
+            "main": "./lib/actions/post_api_rest_v1_contacts_create.js",
+            "title": "create",
+            "description": "Creates a  contact",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_contacts_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_api_rest_v1_contacts__contactId_": {
+            "main": "./lib/actions/delete_api_rest_v1_contacts__contactId_.js",
+            "title": "delete",
+            "description": "Deletes a  contact",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_api_rest_v1_contacts__contactId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_contacts__contactId_": {
+            "main": "./lib/actions/get_api_rest_v1_contacts__contactId_.js",
+            "title": "get",
+            "description": "Returns details for a single contact",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_contacts__contactId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_contacts__contactId_": {
+            "main": "./lib/actions/post_api_rest_v1_contacts__contactId_.js",
+            "title": "update",
+            "description": "Updates a  contact",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_contacts__contactId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_contacts__contactId__addFromGroup__groupId_": {
+            "main": "./lib/actions/get_api_rest_v1_contacts__contactId__addFromGroup__groupId_.js",
+            "title": "removeFromGroup",
+            "description": "Remove a contact from a group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_contacts__contactId__addFromGroup__groupId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_contacts__contactId__addFromGroup__groupId_": {
+            "main": "./lib/actions/post_api_rest_v1_contacts__contactId__addFromGroup__groupId_.js",
+            "title": "removeFromGroup",
+            "description": "Remove a contact from a group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_contacts__contactId__addFromGroup__groupId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_contacts__contactId__addToGroup__groupId_": {
+            "main": "./lib/actions/get_api_rest_v1_contacts__contactId__addToGroup__groupId_.js",
+            "title": "addToGroup",
+            "description": "Add a contact to a group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_contacts__contactId__addToGroup__groupId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_contacts__contactId__addToGroup__groupId_": {
+            "main": "./lib/actions/post_api_rest_v1_contacts__contactId__addToGroup__groupId_.js",
+            "title": "addToGroup",
+            "description": "Add a contact to a group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_contacts__contactId__addToGroup__groupId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_context_lookup": {
+            "main": "./lib/actions/get_api_rest_v1_context_lookup.js",
+            "title": "lookup",
+            "description": "Returns context information for a single provided",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_context_lookup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_context_lookup": {
+            "main": "./lib/actions/post_api_rest_v1_context_lookup.js",
+            "title": "lookup",
+            "description": "Returns context information for a single provided",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_context_lookup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_groups_all": {
+            "main": "./lib/actions/get_api_rest_v1_groups_all.js",
+            "title": "all",
+            "description": "Returns all groups",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_groups_all.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_groups_create": {
+            "main": "./lib/actions/post_api_rest_v1_groups_create.js",
+            "title": "create",
+            "description": "Create a  group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_groups_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_api_rest_v1_groups__groupId_": {
+            "main": "./lib/actions/delete_api_rest_v1_groups__groupId_.js",
+            "title": "delete",
+            "description": "Deletes a  group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_api_rest_v1_groups__groupId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_groups__groupId_": {
+            "main": "./lib/actions/get_api_rest_v1_groups__groupId_.js",
+            "title": "get",
+            "description": "Returns details for a single group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_groups__groupId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_groups__groupId_": {
+            "main": "./lib/actions/post_api_rest_v1_groups__groupId_.js",
+            "title": "update",
+            "description": "Update a  group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_groups__groupId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_groups__groupId__addContact__contactId_": {
+            "main": "./lib/actions/get_api_rest_v1_groups__groupId__addContact__contactId_.js",
+            "title": "addContact",
+            "description": "Add a contact to a group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_groups__groupId__addContact__contactId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_groups__groupId__addContact__contactId_": {
+            "main": "./lib/actions/post_api_rest_v1_groups__groupId__addContact__contactId_.js",
+            "title": "addContact",
+            "description": "Add a contact to a group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_groups__groupId__addContact__contactId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_groups__groupId__removeContact__contactId_": {
+            "main": "./lib/actions/get_api_rest_v1_groups__groupId__removeContact__contactId_.js",
+            "title": "removeContact",
+            "description": "Remove a contact from a group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_groups__groupId__removeContact__contactId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_groups__groupId__removeContact__contactId_": {
+            "main": "./lib/actions/post_api_rest_v1_groups__groupId__removeContact__contactId_.js",
+            "title": "removeContact",
+            "description": "Remove a contact from a group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_groups__groupId__removeContact__contactId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_messages_all": {
+            "main": "./lib/actions/get_api_rest_v1_messages_all.js",
+            "title": "all",
+            "description": "Returns all messages",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_messages_all.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "analyse_full": {
+            "main": "./lib/actions/analyse_full.js",
+            "title": "analyse-full",
+            "description": "Returns full analysis of message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/analyse_full.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "analyse_message_credit_cost": {
+            "main": "./lib/actions/analyse_message_credit_cost.js",
+            "title": "analyse-message-credit-cost",
+            "description": "Returns the number of credit which would be required to send the request message to the requested recipient number",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/analyse_message_credit_cost.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "analyse_message_encoding": {
+            "main": "./lib/actions/analyse_message_encoding.js",
+            "title": "analyse-message-encoding",
+            "description": "Returns the message encoding that would be required to send the requested message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/analyse_message_encoding.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "analyse_message_length": {
+            "main": "./lib/actions/analyse_message_length.js",
+            "title": "analyse-message-length",
+            "description": "Returns the number of characters the requested message consists of",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/analyse_message_length.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "analyse_": {
+            "main": "./lib/actions/analyse_.js",
+            "title": "analyse-",
+            "description": "Returns details for a single message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/analyse_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "analyse_number_of_messages": {
+            "main": "./lib/actions/analyse_number_of_messages.js",
+            "title": "analyse-number-of-messages",
+            "description": "Returns the number of SMS parts which would be sent when sending the requested message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/analyse_number_of_messages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_api_rest_v1_messages__messageId_": {
+            "main": "./lib/actions/delete_api_rest_v1_messages__messageId_.js",
+            "title": "delete",
+            "description": "Deletes a  message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_api_rest_v1_messages__messageId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_messages__messageId_": {
+            "main": "./lib/actions/get_api_rest_v1_messages__messageId_.js",
+            "title": "get",
+            "description": "Returns details for a single message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_messages__messageId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_messages__messageId__markRead": {
+            "main": "./lib/actions/post_api_rest_v1_messages__messageId__markRead.js",
+            "title": "markRead",
+            "description": "Marks a  message as read",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_messages__messageId__markRead.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_api_rest_v1_messages__messageId__markRead": {
+            "main": "./lib/actions/put_api_rest_v1_messages__messageId__markRead.js",
+            "title": "markRead",
+            "description": "Marks a  message as read",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_api_rest_v1_messages__messageId__markRead.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_messages__messageId__markUnread": {
+            "main": "./lib/actions/post_api_rest_v1_messages__messageId__markUnread.js",
+            "title": "markUnread",
+            "description": "Marks a  message as unread",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_messages__messageId__markUnread.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_api_rest_v1_messages__messageId__markUnread": {
+            "main": "./lib/actions/put_api_rest_v1_messages__messageId__markUnread.js",
+            "title": "markUnread",
+            "description": "Marks a  message as unread",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_api_rest_v1_messages__messageId__markUnread.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_sms_send": {
+            "main": "./lib/actions/get_api_rest_v1_sms_send.js",
+            "title": "send",
+            "description": "Returns an example of the data to POST to send a single message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_sms_send.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_sms_send": {
+            "main": "./lib/actions/post_api_rest_v1_sms_send.js",
+            "title": "send",
+            "description": "Sends a single message. The <i>recipientNumber</i> and <i>message</i> fields are required. All other fields are optional.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_sms_send.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_sms_send_bulk": {
+            "main": "./lib/actions/get_api_rest_v1_sms_send_bulk.js",
+            "title": "send-bulk",
+            "description": "Returns an example of the data to POST to send multiple messages in one transaction.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_sms_send_bulk.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_sms_send_bulk": {
+            "main": "./lib/actions/post_api_rest_v1_sms_send_bulk.js",
+            "title": "send-bulk",
+            "description": "Send multiple messages in one transaction.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_sms_send_bulk.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_sms_send_url_parameters": {
+            "main": "./lib/actions/get_api_rest_v1_sms_send_url_parameters.js",
+            "title": "send-url-parameters",
+            "description": "Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_sms_send_url_parameters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_sms_send_url_parameters": {
+            "main": "./lib/actions/post_api_rest_v1_sms_send_url_parameters.js",
+            "title": "send-url-parameters",
+            "description": "Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_sms_send_url_parameters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_sms_send_url__token_": {
+            "main": "./lib/actions/get_api_rest_v1_sms_send_url__token_.js",
+            "title": "send-url",
+            "description": "Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_sms_send_url__token_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_api_rest_v1_sms_send_url__token_": {
+            "main": "./lib/actions/post_api_rest_v1_sms_send_url__token_.js",
+            "title": "send-url",
+            "description": "Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_api_rest_v1_sms_send_url__token_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_templates_all": {
+            "main": "./lib/actions/get_api_rest_v1_templates_all.js",
+            "title": "all",
+            "description": "Returns all templates",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_templates_all.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_api_rest_v1_templates__templateId_": {
+            "main": "./lib/actions/delete_api_rest_v1_templates__templateId_.js",
+            "title": "delete",
+            "description": "Deletes a  template",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_api_rest_v1_templates__templateId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_templates__templateId_": {
+            "main": "./lib/actions/get_api_rest_v1_templates__templateId_.js",
+            "title": "get",
+            "description": "Returns details for a single template",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_templates__templateId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_voice_all": {
+            "main": "./lib/actions/get_api_rest_v1_voice_all.js",
+            "title": "all",
+            "description": "Returns all voice messages",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_voice_all.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "single_audio": {
+            "main": "./lib/actions/single_audio.js",
+            "title": "single-audio",
+            "description": "Send a single audio voice message to one recipient. Note, Content-Type header must be set to multipart/form-data for this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/single_audio.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "single_text": {
+            "main": "./lib/actions/single_text.js",
+            "title": "single-text",
+            "description": "Send a single text voice message to one recipient",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/single_text.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_api_rest_v1_voice__messageId_": {
+            "main": "./lib/actions/delete_api_rest_v1_voice__messageId_.js",
+            "title": "delete",
+            "description": "Deletes a  message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_api_rest_v1_voice__messageId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_api_rest_v1_voice__messageId_": {
+            "main": "./lib/actions/get_api_rest_v1_voice__messageId_.js",
+            "title": "get",
+            "description": "Returns details for a single message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_api_rest_v1_voice__messageId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "recipientNumber": {
+            "required": true,
+            "type": "string"
+        },
+        "campaign": {
+            "required": false,
+            "type": "string"
+        },
+        "dataField": {
+            "required": false,
+            "type": "string"
+        },
+        "retryCount": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "retryMinimumInterval": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "retryMaximumInterval": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "requestBody": {
+            "type": "string",
+            "format": "binary"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "searchEmail": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

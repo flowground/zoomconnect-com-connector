@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "pageSize": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 100
+        },
+        "page": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+        },
+        "status": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "SCHEDULED",
+                "UNKNOWN",
+                "SENT",
+                "FAILED",
+                "FAILED_REFUNDED",
+                "FAILED_OPTOUT",
+                "DELIVERED"
+            ]
+        },
+        "fromDateTimeSent": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "toDateTimeSent": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "toNumber": {
+            "required": false,
+            "type": "string"
+        },
+        "message": {
+            "required": false,
+            "type": "string"
+        },
+        "campaign": {
+            "required": false,
+            "type": "string"
+        },
+        "dataField": {
+            "required": false,
+            "type": "string"
+        },
+        "deleted": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

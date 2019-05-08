@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "userId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "requestBody": {
+            "description": "WebServiceUser",
+            "properties": {
+                "company": {
+                    "type": "string"
+                },
+                "contactNumber": {
+                    "type": "string"
+                },
+                "creditBalance": {
+                    "format": "double",
+                    "type": "number"
+                },
+                "emailAddress": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "userId": {
+                    "format": "int64",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "recipientNumber": {
+            "required": true,
+            "type": "string"
+        },
+        "message": {
+            "required": true,
+            "type": "string"
+        },
+        "dateToSend": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "campaign": {
+            "required": false,
+            "type": "string"
+        },
+        "dataField": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

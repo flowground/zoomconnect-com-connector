@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "groupId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "WebServiceGroup",
+            "properties": {
+                "groupId": {
+                    "type": "string"
+                },
+                "links": {
+                    "items": {
+                        "properties": {
+                            "href": {
+                                "type": "string"
+                            },
+                            "rel": {
+                                "type": "string"
+                            },
+                            "templated": {
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "WebServiceAnalyseMessageRequest",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "recipientNumber": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

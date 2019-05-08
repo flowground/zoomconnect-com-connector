@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "WebServiceTransferCreditsRequest",
+            "properties": {
+                "numberOfCreditsToTransfer": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "transferFromEmailAddress": {
+                    "type": "string"
+                },
+                "transferToEmailAddress": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

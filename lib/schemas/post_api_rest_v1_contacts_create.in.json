@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "WebServiceContact",
+            "properties": {
+                "contactId": {
+                    "type": "string"
+                },
+                "contactNumber": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "links": {
+                    "items": {
+                        "properties": {
+                            "href": {
+                                "type": "string"
+                            },
+                            "rel": {
+                                "type": "string"
+                            },
+                            "templated": {
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

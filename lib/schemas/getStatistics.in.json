@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "from": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "to": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "userEmailAddress": {
+            "required": false,
+            "type": "string"
+        },
+        "campaign": {
+            "required": false,
+            "type": "string"
+        },
+        "includeRefundedAndOptout": {
+            "required": false,
+            "type": "boolean"
+        },
+        "calculateCreditValue": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

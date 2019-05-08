@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "WebServiceVoiceMessageSendSingleTextRequest",
+            "properties": {
+                "campaign": {
+                    "type": "string"
+                },
+                "dataField": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "recipientNumber": {
+                    "type": "string"
+                },
+                "retryCount": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "retryMaximumInterval": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "retryMinimumInterval": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
